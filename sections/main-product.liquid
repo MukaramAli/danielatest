@@ -485,11 +485,13 @@
                  <td><i class="fa-regular fa-flag"></i>&nbsp;Contry of Origin</td>
                   <td style="text-align:right">{{ product.metafields.specs.COO }}</td>
             </tr>
+             {% endif %}
+             {% if product.metafields.specs.sku   != blank %}
             <tr>
-                 <td><i class="fa-regular fa-link"></i>&nbsp;SKU</td>
+                 <td><i class="fa fa-link"></i>&nbsp;SKU</td>
                   <td style="text-align:right">{{ product.metafields.specs.sku }}</td>
             </tr>
-                  {% endif %}
+            {% endif %}
             </table>
             
           {%- when 'buy_buttons' -%}
