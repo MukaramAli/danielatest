@@ -29,7 +29,11 @@
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
 -%}
-<div class=productdiemnsion><span>{{  product.metafields.specs.avgweight }}{{  product.metafields.specs.pcct }}&nbsp;|&nbsp;{{  product.metafields.specs.cut }}</span></div>
+{%if template == 'product' %}
+<div class="productdiemnsion"><span>Total Weight :</span><span>{{  product.metafields.specs.totweight }}</span></div>
+{%else%}
+<div class="productdiemnsion"><span>{{  product.metafields.specs.avgweight }}{{  product.metafields.specs.pcct }}&nbsp;|&nbsp;{{  product.metafields.specs.cut }}</span></div>
+{%endif%}
 <div class="price
   {%- if price_class %} {{ price_class }}{% endif -%}
   {%- if available == false %} price--sold-out {% endif -%}
