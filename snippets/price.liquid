@@ -30,10 +30,21 @@
   endif
 -%}
 {%if template == 'product' %}
-<div class="productdiemnsion"><span>Total Weight :</span><span>{{  product.metafields.specs.totweight }}</span></div>
+<div class="productdiemnsion"><span>Total Weight :&nbsp;</span><span>{{  product.metafields.specs.totweight }}</span></div>
 {%else%}
-<div class="productdiemnsion"><span>{{  product.metafields.specs.avgweight }}{{  product.metafields.specs.pcct }}&nbsp;|&nbsp;{{  product.metafields.specs.cut }}</span></div>
+<div class="productdiemnsion"><span>{{  product.metafields.specs.totweight }}&nbsp;|&nbsp;
+{%- for option in product.options_with_values -%}
+                {% if option.name == 'Shape' %} 
+                {%- for value in option.values -%}
+                  {{ value }}
+                  {%- endfor -%} 
+                  {%endif%}
+                 
+                
+{%- endfor -%}
 {%endif%}
+ </span>
+  </div>
 <div class="price
   {%- if price_class %} {{ price_class }}{% endif -%}
   {%- if available == false %} price--sold-out {% endif -%}
@@ -53,7 +64,7 @@
           {% assign customerTags = customer.tags | join:',' %}
           {% if customerTags contains 'showprice' %}  
             {% if product.price > 0  %}
-        {{ money_price }}
+        {{ money_price }} | {{  product.metafields.specs.pcct }}
             {% else %}
           Add to quote for pricing
             {% endif %}
