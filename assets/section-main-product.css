@@ -1184,3 +1184,13 @@ a.product__text {
   margin-left: 1.2rem;
   flex-shrink: 0;
 }
+@media  screen and (min-width:1200px){
+    .product-media-modal__content {
+        max-height: 100vh;
+        width: 1050px;
+        overflow: auto;
+        margin: auto;
+    }
+
+
+}
