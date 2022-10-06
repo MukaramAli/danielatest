@@ -30,7 +30,7 @@
   endif
 -%}
 {%if template == 'product' %}
-<div class="productdiemnsion"><span>Weight :&nbsp;</span><span>{{  product.metafields.specs.totweight }}&nbsp;|&nbsp;{{  product.metafields.specs.pcct }}</span></div>
+<div class="productdiemnsion"><span>Weight :&nbsp;</span><span>{{  product.metafields.specs.totweight }}&nbsp;{{  product.metafields.specs.pcct }}</span></div>
 {%else%}
 <div class="productdiemnsion"><span>{{  product.metafields.specs.totweight }}&nbsp;{{  product.metafields.specs.pcct }}&nbsp;|&nbsp;
 {%- for option in product.options_with_values -%}
