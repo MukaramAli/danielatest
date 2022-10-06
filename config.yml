@@ -1,6 +1,0 @@
-development:
-  password: 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
-  theme_id: "134921191647"
-  store: danielatest1.myshopify.com
-  ignore_files:
-  - config/settings_data.json
